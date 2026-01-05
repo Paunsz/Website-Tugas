@@ -3,706 +3,231 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="gayaa.css" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="filterProduct.css" />
-    <title>MegToon</title>
-  </head>
-  <body>
-    <!-- Atasan  search dan icon market -->
-    <div class="Posisi">
-      <header class="border-b bg-white/95 sticky top-0 z-50 backdrop-blur-sm">
-        <div
-          class="w-full pl-1 pr-2 py-4 flex items-center justify-between gap-0 relative"
-        >
-          <!-- Logo + Title + Search -->
-          <div class="flex items-center gap-3 w-full">
-            <div
-              class="w-10 h-10 bg-gradient-to-r from-orange-400 to-red-500 rounded-xl flex items-center justify-center text-white text-lg font-bold"
-            >
-              📚
-            </div>
-            <div class="hidden sm:block ml-3">
-              <div class="text-lg font-semibold">MegToon</div>
-              <div class="text-xs text-gray-500">Local Manga Shop</div>
-            </div>
 
-            <div class="flex-1 ml-4">
-              <input
-                id="search"
-                type="search"
-                placeholder="Search manga..."
-                class="w-full h-10 px-3 rounded-full border focus:outline-none focus:ring-2 focus:ring-orange-300"
-              />
-            </div>
+    <title>MegToon</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="gayaa.css" />
+    <link rel="stylesheet" href="filterProduct.css" />
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="bg-white text-gray-800">
+    <!-- ================= HEADER ================= -->
+    <header class="border-b bg-white/95 sticky top-0 z-50 backdrop-blur-sm">
+      <div
+        class="w-full pl-4 pr-4 py-4 flex items-center justify-between gap-2"
+      >
+        <div class="flex items-center gap-3 w-full">
+          <div
+            class="w-10 h-10 bg-gradient-to-r from-orange-400 to-red-500 rounded-xl flex items-center justify-center text-white text-lg font-bold"
+          >
+            📚
           </div>
 
-          <!-- Cart / Marketplace (COMING SOON) -->
-          <button
-            onclick="openCart()"
-            class="relative w-10 h-10 flex items-center justify-center rounded-full border hover:bg-gray-100"
-          >
-            🛒
-            <span
-              id="cart-count"
-              class="absolute -top-1 -right-1 bg-orange-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center"
-              >0</span
-            >
-          </button>
-        </div>
-      </header>
-    </div>
-    <!-- content awalan -->
-    <section
-      class="overflow-hidden bg-[#FB923C] h-[80vh] sm:grid sm:grid-cols-2"
-    >
-      <div class="p-8 md:p-12 lg:px-16 lg:py-24">
-        <div class="mx-auto max-w-xl text-left">
-          <h2 class="hero-heading text-white">Your Local Manga Paradise</h2>
+          <div class="hidden sm:block">
+            <div class="text-lg font-semibold">MegToon</div>
+            <div class="text-xs text-gray-500">Local Manga Shop</div>
+          </div>
 
-          <p class="hero-lead hidden md:block">
+          <div class="flex-1 ml-4 max-w-md">
+            <input
+              id="search"
+              type="search"
+              placeholder="Search manga..."
+              class="w-full h-9 px-3 text-sm rounded-full border focus:outline-none focus:ring-2 focus:ring-orange-300"
+            />
+          </div>
+        </div>
+
+        <button
+          onclick="openCart()"
+          class="relative w-10 h-10 flex items-center justify-center rounded-full border hover:bg-gray-100"
+        >
+          🛒
+          <span
+            id="cart-count"
+            class="absolute -top-1 -right-1 bg-orange-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center"
+          >
+            0
+          </span>
+        </button>
+      </div>
+    </header>
+
+    <!-- ================= HERO ================= -->
+    <section
+      class="overflow-hidden bg-gradient-to-br from-orange-400 via-orange-500 to-red-500 min-h-[75vh] sm:grid sm:grid-cols-2 items-center"
+    >
+      <div class="p-8 md:p-12 lg:px-16 lg:py-20">
+        <div class="max-w-xl">
+          <h1
+            class="text-5xl md:text-6xl font-black text-white leading-tight mb-6"
+          >
+            Your Local Manga Paradise
+          </h1>
+
+          <p class="text-lg text-white/90 mb-8 hidden md:block">
             Discover the latest and greatest manga titles. From classic series
-            to new releases, we have everything for manga enthusiasts. Order
-            online, pick up in-store!
+            to new releases, we have everything for manga lovers.
           </p>
 
-          <div class="mt-6 md:mt-8">
-            <a href="#products" class="cta-btn inline-block"
-              >Get Started Today</a
-            >
-          </div>
+          <a
+            href="#products"
+            class="inline-block bg-white text-orange-600 px-6 py-3 rounded-full font-bold hover:bg-orange-100 transition"
+          >
+            Get Started
+          </a>
         </div>
       </div>
 
-      <img alt="" src="image.png" class="h-full w-full object-cover" />
+      <div class="relative min-h-[400px]">
+        <img
+          src="image.png"
+          alt="Manga Collection"
+          class="w-full h-full object-cover rounded-l-3xl shadow-2xl"
+        />
+      </div>
     </section>
 
-    <!-- Filter product -->
-    <div class="wrapper max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- ================= FILTER ================= -->
+    <section class="max-w-7xl mx-auto px-4 py-8">
       <div
         id="buttons"
-        class="flex flex-wrap items-center gap-3 justify-center md:justify-start py-6"
+        class="flex flex-wrap gap-3 items-center justify-center md:justify-start"
       >
-        <div class="text-sm text-gray-500 mr-2">Categories:</div>
-        <button
-          data-cat="all"
-          class="category-btn rounded-full border px-4 py-1 text-sm flex items-center gap-2"
-        >
-          <span>Semua</span>
-          <span
-            class="count bg-gray-100 text-gray-700 text-xs px-2 py-0.5 rounded-full"
-            >0</span
-          >
-        </button>
-        <button
-          data-cat="Shonen"
-          class="category-btn rounded-full border px-4 py-1 text-sm flex items-center gap-2"
-        >
-          <span>Shonen</span>
-          <span
-            class="count bg-gray-100 text-gray-700 text-xs px-2 py-0.5 rounded-full"
-            >0</span
-          >
-        </button>
-        <button
-          data-cat="Seinen"
-          class="category-btn rounded-full border px-4 py-1 text-sm flex items-center gap-2"
-        >
-          <span>Seinen</span>
-          <span
-            class="count bg-gray-100 text-gray-700 text-xs px-2 py-0.5 rounded-full"
-            >0</span
-          >
-        </button>
-        <button
-          data-cat="Shoujo"
-          class="category-btn rounded-full border px-4 py-1 text-sm flex items-center gap-2"
-        >
-          <span>Shoujo</span>
-          <span
-            class="count bg-gray-100 text-gray-700 text-xs px-2 py-0.5 rounded-full"
-            >0</span
-          >
-        </button>
+        <button data-cat="all" class="category-btn">Semua <span class="count">0</span></button>
+        <button data-cat="Shonen" class="category-btn">Shonen <span class="count">0</span></button>
+        <button data-cat="Seinen" class="category-btn">Seinen <span class="count">0</span></button>
+        <button data-cat="Shoujo" class="category-btn">Shoujo <span class="count">0</span></button>
       </div>
 
       <div
         id="products"
-        class="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 pb-12"
+        class="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-8"
       ></div>
-    </div>
-    <!-- isi product -->
+    </section>
+
+    <!-- ================= DATA ================= -->
     <script src="products.js"></script>
+
+    <!-- ================= LOGIC ================= -->
     <script>
       const products = window.PRODUCTS || [];
-
       const productsContainer = document.getElementById("products");
       const cartCountEl = document.getElementById("cart-count");
 
       function formatPrice(p) {
-        return p ? "$" + p.toFixed(2) : "";
+        return "$" + p.toFixed(2);
       }
 
-      // -- Product right-side panel (shows description by default)
-      (function setupProductPanel() {
-        const panel = document.createElement("div");
-        panel.id = "product-panel";
-        panel.className = "fixed inset-0 z-50 hidden";
-        panel.innerHTML = `
-          <div class="absolute inset-0 bg-black/50" data-action="close-panel"></div>
-          <aside class="absolute right-0 top-0 bottom-0 w-full sm:w-96 bg-white shadow-lg transform translate-x-full transition-transform duration-300" role="dialog" aria-modal="true">
-            <div class="p-6 h-full flex flex-col">
-              <div class="flex items-start justify-between">
-                <div>
-                  <h3 id="panel-title" class="text-xl font-semibold text-gray-900">Manga Details</h3>
-                  <div class="text-sm text-gray-500">View detailed information about this manga</div>
-                </div>
-                <button aria-label="Close" data-action="close-panel" class="text-gray-500 hover:text-gray-700">✕</button>
-              </div>
-
-              <div class="mt-6 flex gap-6">
-                <img id="panel-img" src="" alt="" class="w-36 h-44 rounded-lg object-cover">
-                <div class="flex-1">
-                  <div id="panel-category" class="inline-block badge bg-orange-500 text-white text-sm"></div>
-                  <h4 id="panel-product-title" class="mt-3 font-semibold text-lg"></h4>
-                  <div id="panel-meta" class="mt-3 text-sm text-gray-600"></div>
-                </div>
-              </div>
-
-              <div class="mt-6 border-t pt-6 overflow-auto flex-1">
-                <h5 class="text-sm font-medium text-gray-700">Description</h5>
-                <p id="panel-desc" class="mt-3 text-sm text-gray-600"></p>
-              </div>
-
-              <div class="mt-6 pt-4 border-t flex items-center gap-4">
-                <div class="text-2xl font-bold text-emerald-600" id="panel-price"></div>
-                <button id="panel-add" class="ml-auto inline-flex items-center gap-2 bg-orange-500 text-white px-4 py-2 rounded">Add to Cart</button>
+      function displayProducts(items) {
+        productsContainer.innerHTML = "";
+        items.forEach((p) => {
+          productsContainer.innerHTML += `
+          <div class="border rounded-lg overflow-hidden bg-white hover:shadow-lg transition">
+            <div class="p-4 cursor-pointer" onclick='openProductPanel(${JSON.stringify(p)})'>
+              <img src="${p.img}" class="h-48 w-full object-contain mb-3">
+              <h3 class="font-semibold">${p.title}</h3>
+              <p class="text-sm text-gray-500 line-clamp-2">${p.description}</p>
+              <div class="text-xl font-bold text-emerald-600 mt-2">
+                ${formatPrice(p.price)}
               </div>
             </div>
-          </aside>
-        `;
-        document.body.appendChild(panel);
-
-        function escClose(e) {
-          if (e.key === "Escape") closePanel();
-        }
-
-        function openPanel(p) {
-          const root = document.getElementById("product-panel");
-          root.querySelector("#panel-img").src = p.img;
-          root.querySelector("#panel-img").alt = p.title;
-          root.querySelector("#panel-product-title").textContent = p.title;
-          root.querySelector("#panel-desc").textContent = p.description;
-          root.querySelector("#panel-price").textContent = formatPrice(p.price);
-          root.querySelector("#panel-category").textContent = p.category || "";
-          const meta = [];
-          if (p.author) meta.push("Author: " + p.author);
-          if (p.publisher) meta.push("Publisher: " + p.publisher);
-          if (p.volume) meta.push("Volume: " + p.volume);
-          root.querySelector("#panel-meta").innerHTML = meta.length
-            ? meta.join(" • ")
-            : "";
-
-          const aside = root.querySelector("aside");
-          root.classList.remove("hidden");
-          requestAnimationFrame(() =>
-            aside.classList.remove("translate-x-full")
-          );
-
-          root
-            .querySelectorAll('[data-action="close-panel"]')
-            .forEach((el) => el.addEventListener("click", closePanel));
-          document.addEventListener("keydown", escClose);
-
-          root.querySelector("#panel-add").onclick = () => {
-            addToCart(p);
-            updateCart();
-          };
-        }
-
-        function closePanel() {
-          const root = document.getElementById("product-panel");
-          const aside = root.querySelector("aside");
-          aside.classList.add("translate-x-full");
-          aside.addEventListener("transitionend", function hide() {
-            root.classList.add("hidden");
-            aside.removeEventListener("transitionend", hide);
-          });
-          document.removeEventListener("keydown", escClose);
-        }
-
-        window.openProductPanel = openPanel;
-        window.closeProductPanel = closePanel;
-      })();
-
-      // -- Product detail modal (hidden description, toggled by 'View source')
-      (function setupProductModal() {
-        const modal = document.createElement("div");
-        modal.id = "product-modal";
-        modal.className =
-          "fixed inset-0 z-50 hidden items-center justify-center";
-        modal.innerHTML = `
-          <div class="absolute inset-0 bg-black/50" data-action="close-modal"></div>
-          <div class="relative bg-white rounded-lg shadow-xl max-w-3xl w-full mx-4 md:mx-0 overflow-hidden">
-            <div class="p-6 md:p-8 md:flex md:gap-6">
-              <img id="modal-img" src="" alt="" class="w-full md:w-44 h-44 rounded-lg object-cover mb-4 md:mb-0">
-              <div class="flex-1">
-                <div class="flex items-start justify-between">
-                  <div>
-                    <h3 id="modal-title" class="text-xl font-semibold text-gray-900"></h3>
-                    <div id="modal-category" class="mt-2 inline-block text-sm bg-orange-500 text-white px-3 py-1 rounded-full"></div>
-                    <div id="modal-meta" class="mt-2 text-sm text-gray-600"></div>
-                  </div>
-                  <button aria-label="Close" data-action="close-modal" class="text-gray-500 hover:text-gray-700">✕</button>
-                </div>
-                <div class="mt-4">
-                  <p id="modal-desc" class="mt-3 text-sm text-gray-600"></p>
-                </div>
-                <div class="mt-6 flex items-center gap-4">
-                  <div class="text-2xl font-bold text-emerald-600" id="modal-price"></div>
-                  <button id="modal-add" class="ml-auto inline-flex items-center gap-2 bg-orange-500 text-white px-4 py-2 rounded">Add to Cart</button>
-                </div>
-              </div>
+            <div class="p-4 pt-0">
+              <button onclick='addToCart(${JSON.stringify(p)})'
+                class="w-full bg-orange-500 text-white py-2 rounded hover:bg-orange-600">
+                Add to Cart
+              </button>
             </div>
           </div>
         `;
-        document.body.appendChild(modal);
-
-        function escClose(e) {
-          if (e.key === "Escape") closeProductModal();
-        }
-
-        function closeProductModal() {
-          const root = document.getElementById("product-modal");
-          root.classList.add("hidden");
-          root.classList.remove("flex");
-          document.removeEventListener("keydown", escClose);
-        }
-
-        function openProductModal(p) {
-          const root = document.getElementById("product-modal");
-          root.querySelector("#modal-img").src = p.img;
-          root.querySelector("#modal-img").alt = p.title;
-          root.querySelector("#modal-title").textContent = p.title;
-          root.querySelector("#modal-desc").textContent = p.description;
-          root.querySelector("#modal-price").textContent = formatPrice(p.price);
-          root.querySelector("#modal-category").textContent = p.category || "";
-          const meta = [];
-          if (p.author) meta.push("Author: " + p.author);
-          if (p.publisher) meta.push("Publisher: " + p.publisher);
-          if (p.volume) meta.push("Volume: " + p.volume);
-          root.querySelector("#modal-meta").innerHTML = meta.length
-            ? meta.join(" • ")
-            : "";
-
-          root.querySelector("#modal-add").onclick = () => {
-            addToCart(p);
-            updateCart();
-            closeProductModal();
-          };
-
-          root
-            .querySelectorAll('[data-action="close-modal"]')
-            .forEach((el) => el.addEventListener("click", closeProductModal));
-          document.addEventListener("keydown", escClose);
-
-          root.classList.remove("hidden");
-          root.classList.add("flex");
-        }
-
-        window.openProductModal = openProductModal;
-        window.closeProductModal = closeProductModal;
-      })();
-
-      function renderProducts(list) {
-        productsContainer.innerHTML = "";
-        list.forEach((p) => {
-          const card = document.createElement("article");
-          card.className =
-            "bg-white rounded-lg shadow-sm overflow-hidden group";
-          card.innerHTML = `
-            <div class="relative">
-              <img src="${p.img}" alt="${
-            p.title
-          }" class="w-full h-56 sm:h-64 object-cover transition duration-300 group-hover:scale-105">
-            </div>
-            <div class="relative border border-gray-100 bg-white p-6">
-              <div class="flex items-center justify-between">
-                <div class="text-sm text-gray-500">${
-                  p.oldPrice
-                    ? `<span class=\"line-through text-gray-400\">${formatPrice(
-                        p.oldPrice
-                      )}</span>`
-                    : ""
-                }</div>
-                <div class="text-lg font-bold text-emerald-600">${formatPrice(
-                  p.price
-                )}</div>
-              </div>
-              <h3 class="mt-3 text-lg font-semibold text-gray-900">${
-                p.title
-              }</h3>
-              <form class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <button type="button" class="add-to-cart block w-full rounded-sm bg-gray-100 px-4 py-3 text-sm font-medium text-gray-900 transition hover:scale-105">Add to Cart</button>
-                <button type="button" class="view-btn block w-full rounded-sm bg-orange-500 px-4 py-3 text-sm font-medium text-white transition hover:scale-105">View</button>
-              </form>
-            </div>
-          `;
-
-          card.querySelector(".add-to-cart").addEventListener("click", () => {
-            addToCart(p);
-            openCart();
-          });
-
-          card.querySelector(".view-btn").addEventListener("click", () => {
-            if (window.openProductModal) window.openProductModal(p);
-          });
-
-          productsContainer.appendChild(card);
         });
       }
 
-      // Category buttons logic
-      const btns = document.querySelectorAll("#buttons .category-btn");
-      function updateCounts() {
-        const counts = products.reduce((acc, p) => {
-          const key = (p.category || "").toString();
-          acc[key] = (acc[key] || 0) + 1;
-          acc["all"] = (acc["all"] || 0) + 1;
-          return acc;
-        }, {});
-        btns.forEach((b) => {
-          const cat = b.dataset.cat;
-          const span = b.querySelector(".count");
-          span.textContent = counts[cat] || 0;
-        });
-      }
-
+      // Category
+      const buttons = document.querySelectorAll(".category-btn");
       let currentCategory = "all";
-      const searchInput = document.getElementById("search");
 
-      function setActiveButton(cat) {
-        btns.forEach((b) => {
-          if (b.dataset.cat === cat) {
-            b.classList.add("bg-orange-500", "text-white", "shadow");
-            b.classList.remove("border", "bg-white", "text-gray-700");
-          } else {
-            b.classList.remove("bg-orange-500", "text-white", "shadow");
-            b.classList.add("border", "bg-white", "text-gray-700");
-          }
+      function updateCategoryCounts() {
+        const counts = { all: products.length };
+        products.forEach((p) => {
+          counts[p.category] = (counts[p.category] || 0) + 1;
         });
+        buttons.forEach((btn) => {
+          btn.querySelector(".count").textContent =
+            counts[btn.dataset.cat] || 0;
+        });
+      }
+
+      function filterProducts(cat) {
         currentCategory = cat;
+        const filtered =
+          cat === "all"
+            ? products
+            : products.filter((p) => p.category === cat);
+        displayProducts(filtered);
       }
 
-      function applyFilters() {
-        const q = ((searchInput && searchInput.value) || "")
-          .trim()
-          .toLowerCase();
-        let list = products;
-        if (currentCategory && currentCategory !== "all") {
-          list = list.filter((p) => p.category === currentCategory);
-        }
-        if (q) {
-          list = list.filter(
-            (p) =>
-              p.title.toLowerCase().includes(q) ||
-              p.description.toLowerCase().includes(q)
-          );
-        }
-        renderProducts(list);
-      }
-
-      function filterProduct(cat) {
-        setActiveButton(cat);
-        applyFilters();
-      }
-
-      btns.forEach((b) =>
-        b.addEventListener("click", () => filterProduct(b.dataset.cat))
+      buttons.forEach((btn) =>
+        btn.addEventListener("click", () =>
+          filterProducts(btn.dataset.cat)
+        )
       );
 
-      if (searchInput) {
-        searchInput.addEventListener("input", () => {
-          applyFilters();
-          updateCounts();
-        });
-      }
-
-      updateCounts();
-      setActiveButton("all");
-      renderProducts(products);
-    </script>
-
-    <!-- Cart Sidebar -->
-    <div id="cart-sidebar" class="fixed inset-0 z-50 hidden">
-      <div class="absolute inset-0 bg-black/40" onclick="closeCart()"></div>
-
-      <aside
-        class="absolute right-0 top-0 bottom-0 w-full sm:w-96 bg-white shadow-lg transform translate-x-full transition-transform duration-300"
-      >
-        <div class="p-5 h-full flex flex-col">
-          <div class="flex justify-between items-center border-b pb-3">
-            <h2 class="text-lg font-semibold">Your Cart</h2>
-            <button onclick="closeCart()">✕</button>
-          </div>
-
-          <!-- Keranjang -->
-          <div
-            id="cart-items"
-            class="flex-1 overflow-auto py-4 space-y-4"
-          ></div>
-
-          <!-- Total -->
-          <div class="border-t pt-4">
-            <div class="flex justify-between font-semibold text-lg">
-              <span>Total</span>
-              <span id="cart-total">$0.00</span>
-            </div>
-
-            <button
-              onclick="handleCheckout()"
-              class="mt-4 w-full bg-orange-500 text-white py-2 rounded hover:bg-orange-600 transition"
-            >
-              Checkout
-            </button>
-
-            <button
-              onclick="clearCart()"
-              class="mt-2 w-full bg-gray-200 text-gray-700 py-2 rounded hover:bg-gray-300 transition text-sm"
-            >
-              Kosongkan Keranjang
-            </button>
-          </div>
-        </div>
-      </aside>
-    </div>
-
-    <!-- Script Keranjang dengan localStorage -->
-    <script>
-      // ===========================================
-      // STORAGE HELPER FUNCTIONS
-      // ===========================================
-      const CartStorage = {
-        CART_KEY: "megtoon_cart",
-
-        save(cart) {
-          try {
-            localStorage.setItem(this.CART_KEY, JSON.stringify(cart));
-            console.log("✅ Cart saved to localStorage");
-          } catch (error) {
-            console.error("❌ Error saving cart:", error);
-          }
-        },
-
-        load() {
-          try {
-            const saved = localStorage.getItem(this.CART_KEY);
-            if (saved) {
-              const cart = JSON.parse(saved);
-              console.log("✅ Cart loaded from localStorage:", cart);
-              return cart;
-            }
-          } catch (error) {
-            console.error("❌ Error loading cart:", error);
-          }
-          return [];
-        },
-
-        clear() {
-          try {
-            localStorage.removeItem(this.CART_KEY);
-            console.log("✅ Cart cleared from localStorage");
-          } catch (error) {
-            console.error("❌ Error clearing cart:", error);
-          }
-        },
-
-        isAvailable() {
-          try {
-            const test = "__localStorage_test__";
-            localStorage.setItem(test, test);
-            localStorage.removeItem(test);
-            return true;
-          } catch (error) {
-            return false;
-          }
-        },
-      };
-
-      // ===========================================
-      // CART MANAGEMENT
-      // ===========================================
-
-      // Load cart dari localStorage
-      let cart = CartStorage.load();
-
-      function openCart() {
-        const sidebar = document.getElementById("cart-sidebar");
-        const aside = sidebar.querySelector("aside");
-        sidebar.classList.remove("hidden");
-        requestAnimationFrame(() => aside.classList.remove("translate-x-full"));
-      }
-
-      function closeCart() {
-        const sidebar = document.getElementById("cart-sidebar");
-        const aside = sidebar.querySelector("aside");
-        aside.classList.add("translate-x-full");
-        aside.addEventListener(
-          "transitionend",
-          () => sidebar.classList.add("hidden"),
-          { once: true }
+      // Search
+      document.getElementById("search").addEventListener("input", (e) => {
+        const term = e.target.value.toLowerCase();
+        const filtered = products.filter(
+          (p) =>
+            (currentCategory === "all" ||
+              p.category === currentCategory) &&
+            p.title.toLowerCase().includes(term)
         );
-      }
-
-      function addToCart(product) {
-        const item = cart.find((i) => i.id === product.id);
-        if (item) {
-          item.qty++;
-        } else {
-          cart.push({ ...product, qty: 1 });
-        }
-        CartStorage.save(cart);
-        updateCart();
-      }
-
-      function changeQty(id, delta) {
-        const item = cart.find((i) => i.id === id);
-        if (!item) return;
-
-        item.qty += delta;
-        if (item.qty <= 0) {
-          cart = cart.filter((i) => i.id !== id);
-        }
-        CartStorage.save(cart);
-        updateCart();
-      }
-
-      function removeFromCart(id) {
-        cart = cart.filter((i) => i.id !== id);
-        CartStorage.save(cart);
-        updateCart();
-      }
-
-      function clearCart() {
-        if (confirm("Apakah Anda yakin ingin mengosongkan keranjang?")) {
-          cart = [];
-          CartStorage.clear();
-          updateCart();
-        }
-      }
-
-      function updateCart() {
-        const container = document.getElementById("cart-items");
-        const totalEl = document.getElementById("cart-total");
-        const countEl = document.getElementById("cart-count");
-
-        container.innerHTML = "";
-        let total = 0;
-        let count = 0;
-
-        if (cart.length === 0) {
-          container.innerHTML = `
-            <div class="text-center text-gray-500 py-8">
-              <div class="text-4xl mb-2">🛒</div>
-              <p>Keranjang belanja Anda kosong</p>
-            </div>
-          `;
-        } else {
-          cart.forEach((item) => {
-            total += item.price * item.qty;
-            count += item.qty;
-
-            container.innerHTML += `
-              <div class="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
-                <img src="${
-                  item.img
-                }" class="w-16 h-16 rounded object-cover" alt="${item.title}">
-                <div class="flex-1">
-                  <div class="font-medium text-sm">${item.title}</div>
-                  <div class="text-sm text-gray-500">$${item.price.toFixed(
-                    2
-                  )}</div>
-                </div>
-                <div class="flex items-center gap-2">
-                  <button onclick="changeQty(${item.id}, -1)" 
-                    class="w-8 h-8 flex items-center justify-center border rounded hover:bg-gray-100">−</button>
-                  <span class="w-8 text-center font-semibold">${item.qty}</span>
-                  <button onclick="changeQty(${item.id}, 1)" 
-                    class="w-8 h-8 flex items-center justify-center border rounded hover:bg-gray-100">+</button>
-                </div>
-                <button onclick="removeFromCart(${item.id})" 
-                  class="text-red-500 hover:text-red-700 ml-2">🗑️</button>
-              </div>
-            `;
-          });
-        }
-
-        totalEl.textContent = "$" + total.toFixed(2);
-        countEl.textContent = count;
-
-        if (count > 0) {
-          countEl.classList.remove("hidden");
-        } else {
-          countEl.classList.add("hidden");
-        }
-      }
-
-      function handleCheckout() {
-        if (cart.length === 0) {
-          alert("Keranjang Anda kosong!");
-          return;
-        }
-
-        const total = cart.reduce(
-          (sum, item) => sum + item.price * item.qty,
-          0
-        );
-        const itemCount = cart.reduce((sum, item) => sum + item.qty, 0);
-
-        alert(
-          `Checkout berhasil!\n\nTotal Items: ${itemCount}\nTotal Price: $${total.toFixed(
-            2
-          )}\n\nThank you for Buying! 🎉`
-        );
-
-        cart = [];
-        CartStorage.clear();
-        updateCart();
-        closeCart();
-      }
-
-      // Initialize
-      document.addEventListener("DOMContentLoaded", function () {
-        if (!CartStorage.isAvailable()) {
-          console.warn("⚠️ localStorage tidak tersedia");
-        }
-        updateCart();
-        console.log("✅ MegToon Cart initialized");
+        displayProducts(filtered);
       });
 
-      // Debugging helper
-      window.MegToonCart = {
-        getCart: () => cart,
-        clearCart: clearCart,
-        viewStorage: () =>
-          console.log(localStorage.getItem(CartStorage.CART_KEY)),
-      };
+      // Cart
+      let cart = JSON.parse(localStorage.getItem("megtoon_cart")) || [];
+
+      function saveCart() {
+        localStorage.setItem("megtoon_cart", JSON.stringify(cart));
+      }
+
+      function addToCart(p) {
+        const item = cart.find((i) => i.id === p.id);
+        if (item) item.qty++;
+        else cart.push({ ...p, qty: 1 });
+        saveCart();
+        updateCartCount();
+      }
+
+      function updateCartCount() {
+        cartCountEl.textContent = cart.reduce((a, b) => a + b.qty, 0);
+      }
+
+      function openCart() {
+        alert("Cart feature aktif 👍");
+      }
+
+      // Init
+      updateCategoryCounts();
+      filterProducts("all");
+      updateCartCount();
     </script>
 
-    <!-- footer -->
-    <footer class="bg-black text-white">
-      <div class="w-full border-t border-gray-800">
-        <div
-          class="max-w-7xl mx-auto h-16 px-6 flex items-center justify-between"
-        >
-          <div class="flex items-center gap-2">
-            <span class="text-xl">📚</span>
-            <span class="font-semibold">MegToon</span>
-          </div>
-          <p class="text-sm text-gray-400">
-            © 2025 Copyright. All rights reserved.
-          </p>
-        </div>
+    <!-- ================= FOOTER ================= -->
+    <footer class="bg-orange-50 mt-20">
+      <div class="max-w-5xl mx-auto px-4 py-12 text-center">
+        <div class="text-3xl font-bold text-orange-500 mb-4">📚 MegToon</div>
+        <p class="text-gray-600">
+          Your one-stop destination for manga shopping.
+        </p>
+        <p class="mt-6 text-sm text-gray-500">
+          © 2025 MegToon. All rights reserved.
+        </p>
       </div>
     </footer>
   </body>
